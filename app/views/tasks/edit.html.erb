@@ -1,0 +1,20 @@
+<div>
+  <%= form_with scope: :task, url: category_task_path, method: :put, local: true do |f| %>
+    <div>
+      <div><%= f.label :task_name, 'Name' %></div>
+      <th><%= f.text_field :task_name %></th>
+    </div>
+    <div>
+      <div><%= f.label :task_body, 'Description' %></div>
+      <th><%= f.text_field :task_body %></th>
+    </div>
+    <div>
+    <div><%= f.label :deadline, 'Deadline' %></div>
+    <th><%= f.date_field :deadline %></th>
+  </div>
+    <div>
+      <%= f.submit %>
+      <button type="button"><%= link_to "Back", category_tasks_path %></button>
+    </div>
+  <% end %>
+</div>

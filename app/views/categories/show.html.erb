@@ -1,0 +1,5 @@
+<div><%= @category.category_name %></div>
+<div><%= @category.category_body %></div>
+
+<button type="button"><%= link_to "Task", category_tasks_path(category_id: @category.id) %></button>
+<button type="button"><%= link_to "Back", categories_path %></button>

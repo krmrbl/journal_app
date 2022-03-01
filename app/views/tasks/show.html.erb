@@ -1,0 +1,5 @@
+<div><%= @task.task_name %></div>
+<div><%= @task.task_body %></div>
+<div><%= @task.deadline %></div>
+
+<button type="button"><%= link_to "Back", category_tasks_path(category_id: @category.id) %></button>

@@ -1,0 +1,20 @@
+<div>
+  <%= form_with scope: :category, url: category_path, method: :put, local: true do |f| %>
+    <div>
+      <div><%= f.label :category_name, 'Name' %></div>
+      <th><%= f.text_field :category_name %></th>
+    </div>
+    <div>
+      <div><%= f.label :category_body, 'Description' %></div>
+      <th><%= f.text_field :category_body %></th>
+    </div>
+    <div>
+    <div><%= f.label :deadline, 'Date' %></div>
+    <th><%= f.date_field :deadline %></th>
+  </div>
+    <div>
+      <%= f.submit %>
+      <button type="button"><%= link_to "Back", categories_path %></button>
+    </div>
+  <% end %>
+</div>

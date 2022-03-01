@@ -1,0 +1,15 @@
+<h1>task - index</h1>
+
+<% @tasks.each do |task| %>
+  <div>
+    <div><%= task.task_name %></div>
+    <div><%= task.task_body %></div>
+    <div><%= task.deadline %></div>
+  </div>
+  <button type="button"><%= link_to "Edit", edit_category_task_path(task.category_id, task.id) %></button>
+  <button type="button"><%= link_to "Show", category_task_path(task.category_id, task.id) %></button>
+  <button type="button"><%= link_to "Delete", category_task_path(task.category_id, task.id), method: :delete, data: { confirm: 'Are you sure you want to delete this task?' } %></button>
+<% end %>
+
+<button type="button"><%= link_to 'Add Task', new_category_task_path(@category_id) %></button>
+<button type="button"><%= link_to 'Back', category_path(@category_id) %></button>

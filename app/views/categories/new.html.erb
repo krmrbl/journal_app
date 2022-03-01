@@ -1,0 +1,19 @@
+<div>
+  <%= form_with scope: :category, url: categories_path, method: :post, local: true do |f| %>
+    <div>
+      <div><%= f.label :category_name, 'Name' %></div>
+      <th><%= f.text_field :category_name %></th>
+    </div>
+    <div>
+      <div><%= f.label :category_body, 'Description' %></div>
+      <th><%= f.text_field :category_body %></th>
+    </div>
+    <div>
+      <th><%= f.number_field :user_id, id: :category_user_id, value: current_user.id, type: :hidden %></th>
+    </div>
+    <div>
+      <%= f.submit %>
+      <button type="button"><%= link_to "Back", categories_path %></button>
+    </div>
+  <% end %>
+</div>

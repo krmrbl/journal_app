@@ -1,0 +1,35 @@
+
+
+<% if user_signed_in? %>
+  <div><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></div>
+  <div><%= link_to "Edit Profile", edit_user_registration_path %></div>
+
+  <h1>category - index</h1>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
+<div>
+  <button type="button">
+  <%= link_to "Add", new_category_path, title: "Add Category" %>
+  </button>
+</div>
+
+<% @categories.each do |category| %>
+  <%if category.user == current_user%>
+  <div>
+    <div><%= category.category_name %></div>
+    <div><%= category.category_body %></div>
+  </div>
+  <div><%= link_to "Show", category_path(category), title: "Show" %></div>
+  <div><%= link_to "Edit", edit_category_path(category.id), title: "Edit" %></div>
+  <div><%= link_to "Delete", category_path(category.id), title: "Delete", method: :delete, data: { confirm: 'Are you sure you want to delete this category?' } %></div>      
+  <% end %>
+<% end %>
+<% else %>
+  <div><%= link_to "Sign Up", new_user_registration_path %></div>
+  <div><%= link_to "Sign In", new_user_session_path %></div>
+<% end %>
